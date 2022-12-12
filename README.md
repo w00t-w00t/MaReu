@@ -8,6 +8,8 @@ I used it, when I teach Android in engineering schools.
 
 ## Reasons to use Java for Android app
 
+Students may ask some advantages over Kotlin to stick with Java :
+
 - It's a very popular language (large community)
 - It's a mature language (lots of libraries, and tools)
 - It's easy to learn
