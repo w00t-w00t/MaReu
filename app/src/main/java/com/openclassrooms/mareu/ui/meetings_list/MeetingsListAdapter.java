@@ -63,7 +63,7 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListViewHo
         Context context = parent.getContext();
         // inflate the view holder layout
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.fragment_mettings_item, parent, false);
+        View view = inflater.inflate(R.layout.fragment_mettings_list_item, parent, false);
         // return the view holder
         return new MeetingsListViewHolder(view, mOnDropClickListener);
     }

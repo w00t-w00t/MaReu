@@ -151,7 +151,7 @@ public class MeetingsListFragment extends Fragment implements MeetingsListContra
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mettings, container, false);
+        View view = inflater.inflate(R.layout.fragment_mettings_list, container, false);
         // Bind the ui components
         ButterKnife.bind(this, view);
         // Find the floating action button (add a meeting), then add the setOnClickListener logic
