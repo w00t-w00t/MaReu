@@ -38,3 +38,64 @@ Students may ask some advantages over Kotlin to stick with Java :
 - It's easy to find meetups
 - Frequent updates
 - Core language of the SDK
+
+## Demo Activity
+
+You can add a demo activity in order to simplify some UI components demo : 
+
+```java
+
+package ... .mareu.ui.main;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+import ... .mareu.R;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import ... .ui.pickers.date.DatePickerFactory;
+import ... .ui.pickers.date.DatePickerFragment;
+import ... .mareu.utils.DateEasy;
+
+public class DemoActivity extends AppCompatActivity {
+    
+    // A button to open an UI date picker
+    @BindView(R.id.button)
+    Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        // Get the fragment manager
+        final FragmentManager fm = getSupportFragmentManager();
+        // On click on the button, open the date picker
+        button.setOnClickListener(v -> {
+            // Create the date picker factory
+            DatePickerFactory factory = new DatePickerFactory();
+            // Get the fragment ..
+            DatePickerFragment fragment = factory.getFragment(
+                    DateEasy.now(),
+                    null,
+                    !false,
+                    // on date set, notify the presenter
+                    (datePicked) -> System.out.println("Selected date : " + datePicked)
+            );
+            // .. and display it
+            fragment.display(fm);
+        });
+    }
+}
+```
+
