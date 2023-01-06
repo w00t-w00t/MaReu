@@ -34,6 +34,9 @@ android {
         // avoid mock errors with unit tests
         unitTests.returnDefaultValues = true
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -52,7 +55,7 @@ dependencies {
     // FULL JAVA 8 SUPPORT
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
-    // FIELD BINDING BY ANNOTATIONS
+    // GIVE THE CHOICE TO USE BUTTERKNIFE (OR VIEW BINDING FOR BINDINGS)
     implementation 'com.jakewharton:butterknife:10.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
