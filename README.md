@@ -99,3 +99,23 @@ public class DemoActivity extends AppCompatActivity {
 }
 ```
 
+## Layout used
+
+### FrameLayout
+
+FrameLayout is designed to block out an area on the screen to display a single item. You can position and size the item anywhere within the FrameLayout area by assigning layout_width, layout_height, layout_gravity, and layout_margin attributes. The item can also be stretched, centered, or tiled within the FrameLayout area.
+
+By default, if you add multiple children to a `FrameLayout`, they would overlap each other. A `FrameLayout` should be used most often to hold at most a single child view.
+
+### CoordinatorLayout
+
+The main appeal of the `CoordinatorLayout` is its ability to coordinate the animations and transitions of the views within it. There are no overlap between its children.
+
+`CoordinatorLayout` is intended for two primary use cases:
+
+- as a top-level application decor or chrome layout
+- as a container for a specific interaction with one or more child views
+
+### RelativeLayout
+
+The `RelativeLayout` is a layout that positions its children relative to each other. It is a good choice when you want to position a child view relative to another sibling view.
