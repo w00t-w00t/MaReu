@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a project to demonstrate the use of the MVP pattern in Android.
+This is a project to demonstrate the use of the MVP and MVVM patterns in Android.
 
 I used it, when I teach Android in engineering schools.
 
@@ -195,3 +195,39 @@ The main appeal of the `CoordinatorLayout` is its ability to coordinate the anim
 ### RelativeLayout
 
 The `RelativeLayout` is a layout that positions its children relative to each other. It is a good choice when you want to position a child view relative to another sibling view.
+
+## MVP vs MVVM
+
+### MVP
+
+![MVP](./img/mvp.png)
+
+MVP is a design pattern that separates the user interface logic from the business logic. 
+It is based on the Model-View-Presenter pattern. 
+The Presenter is responsible for exposing (converting) the data objects from the Model for the View.
+The Presenter does not know about the View and is not affected by any changes in the View.
+
+### MVVM
+
+![MVVM](./img/mvvm.png)
+
+MVVM is a design pattern that separates the user interface logic from the business logic. 
+It is based on the Model-View-ViewModel pattern. 
+The ViewModel is responsible for exposing (converting) the data objects from the Model for the View.
+The ViewModel does not know about the View and is not affected by any changes in the View.
+
+There are two ways to implement MVVM in Android:
+
+- Data Binding
+- RXJava
+
+#### Differences between MVP and MVVM
+
+- ViewModel replaces the Presenter in the Middle Layer.
+- The Presenter holds references to the View. The ViewModel doesn't.
+- The Presenter updates the View using the classical way (triggering methods).
+- The ViewModel sends data streams.
+- The Presenter and View are in a 1 to 1 relationship.
+- The View and the ViewModel are in a 1 to many relationship.
+- The ViewModel does not know that the View is listening to it.
+
