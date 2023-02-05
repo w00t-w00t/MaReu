@@ -249,3 +249,7 @@ It can be done in three different ways:
 
 ![Model detailed](./img/model.png)
 
+## Classes Tree
+
+![Classes Tree](./img/tree.png)
+
