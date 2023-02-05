@@ -198,28 +198,35 @@ The `RelativeLayout` is a layout that positions its children relative to each ot
 
 ## MVP vs MVVM
 
+### Issues with MVC
+
+Using MVC as software architecture, developers face the following difficulties:
+
+- Most of the main business logic resides in the Controller. Over the life of an application, this file grows and it becomes difficult to maintain the code.
+- Due to tightly coupled user interface and data access mechanisms, the Controller and View layers belong to the same activity or fragment. This poses a problem for making changes to the application's functionality.
+- It becomes difficult to perform unit tests on different layers as most of the tested parts require Android SDK components.
+
 ### MVP
 
 ![MVP](./img/mvp.png)
 
-MVP is a design pattern that separates the user interface logic from the business logic. 
-It is based on the Model-View-Presenter pattern. 
-The Presenter is responsible for exposing (converting) the data objects from the Model for the View.
-The Presenter does not know about the View and is not affected by any changes in the View.
+The reason why MVP is widely accepted is because it offers modularity, testability, and a cleaner and more maintainable codebase. It consists of the following three elements:
+
+- *Model*: Data storage layer. It is responsible for managing the domain logic (real-world business rules) and communicating with the database and network layers.
+
+- *View*: UI (user interface) layer. It provides data visualization and keeps track of user action to inform the presenter.
+
+- *Presenter*: Retrieve data from the model and apply UI logic to decide what to display. It manages the state of the view and takes actions based on user input notification from the view.
 
 ### MVVM
 
 ![MVVM](./img/mvvm.png)
 
-MVVM is a design pattern that separates the user interface logic from the business logic. 
-It is based on the Model-View-ViewModel pattern. 
-The ViewModel is responsible for exposing (converting) the data objects from the Model for the View.
-The ViewModel does not know about the View and is not affected by any changes in the View.
+*MVVM* stands for *Model*, *View*, *ViewModel*.
 
-There are two ways to implement MVVM in Android:
-
-- Data Binding
-- RXJava
+- *Model*: This holds the data of the application. It cannot directly talk to the View. Generally, it's recommended to expose the data to the ViewModel through Observables.
+- *View*: It represents the UI of the application devoid of any Application Logic. It observes the ViewModel.
+- *ViewModel*: It acts as a link between the Model and the View. It's responsible for transforming the data from the Model. It provides data streams to the View. It also uses hooks or callbacks to update the View. It'll ask for the data from the Model.
 
 #### Differences between MVP and MVVM
 
