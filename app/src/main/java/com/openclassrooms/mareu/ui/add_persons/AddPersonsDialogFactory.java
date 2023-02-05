@@ -1,6 +1,8 @@
 package com.openclassrooms.mareu.ui.add_persons;
 
+import com.openclassrooms.mareu.dao.PersonDao;
 import com.openclassrooms.mareu.model.Person;
+import com.openclassrooms.mareu.repository.PersonListRepository;
 
 import java.util.Set;
 
@@ -63,9 +65,16 @@ public class AddPersonsDialogFactory implements AddPersonsDialogFactoryContract 
 
         } else if( patternToUse.equals("MVVM")) {
 
+            // crate the dao
+            PersonDao personDao = new PersonDao();
+            personDao.setPersons(initialPersons);
+            PersonListRepository personListRepository = new PersonListRepository(personDao);
+
             // create the ViewModel
             com.openclassrooms.mareu.ui.add_persons.mvvm.AddPersonsDialogViewModel viewModel =
-                    new com.openclassrooms.mareu.ui.add_persons.mvvm.AddPersonsDialogViewModel();
+                    new com.openclassrooms.mareu.ui.add_persons.mvvm.AddPersonsDialogViewModel(
+                            personListRepository
+                    );
 
             // create the View (fragment)
             com.openclassrooms.mareu.ui.add_persons.mvvm.AddPersonsDialogFragment fragment =
@@ -75,9 +84,6 @@ public class AddPersonsDialogFactory implements AddPersonsDialogFactoryContract 
                                     viewModel.getPersons().getValue()
                             )
                     );
-
-            // set the initial persons
-            viewModel.setPersons(initialPersons);
 
             // export the fragment as a displayable abstract object
             displayable = fragment;

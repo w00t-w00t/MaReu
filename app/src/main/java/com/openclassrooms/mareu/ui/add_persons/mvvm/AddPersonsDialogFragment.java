@@ -241,7 +241,7 @@ public class AddPersonsDialogFragment extends DialogFragment
                 // build the corresponding Person object from the email
                 Person person = new Person(email);
                 // tell the ViewModel to add the person to the list
-                mViewModel.addPerson(person);
+                mViewModel.createPerson(person);
                 // clear the text input
                 mAddPersonsTextInput.getEditText().setText("");
                 // hide the add button

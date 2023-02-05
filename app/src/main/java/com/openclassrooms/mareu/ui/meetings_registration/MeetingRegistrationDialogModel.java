@@ -13,6 +13,7 @@ import java.util.TreeSet;
 
 /**
  * Model for MeetingRegistration
+ * Note that this dummy model, in a real app, would be placed in a repository
  */
 public class MeetingRegistrationDialogModel implements MeetingRegistrationDialogContract.Model {
 

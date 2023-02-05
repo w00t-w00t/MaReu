@@ -7,6 +7,7 @@ import java.util.TreeSet;
 
 /**
  * Model for the AddPersonsDialog
+ * Note that this dummy model, in a real app, would be placed in a repository
  */
 public class AddPersonsDialogModel implements AddPersonsDialogContract.Model {
 

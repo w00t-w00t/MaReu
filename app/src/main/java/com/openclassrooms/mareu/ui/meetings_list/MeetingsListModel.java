@@ -11,6 +11,10 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Model for the MeetingsList
+ * Note that this dummy model, in a real app, would be placed in a repository
+ */
 public class MeetingsListModel implements MeetingsListContract.Model {
 
     /**
