@@ -1,10 +1,11 @@
-package com.openclassrooms.mareu.ui.meetings_registration;
+package com.openclassrooms.mareu.repository.fake;
 
 import com.openclassrooms.mareu.di.DI;
 import com.openclassrooms.mareu.model.Meeting;
 import com.openclassrooms.mareu.model.Person;
 import com.openclassrooms.mareu.model.Place;
 import com.openclassrooms.mareu.service.MeetingsApiService;
+import com.openclassrooms.mareu.ui.meetings_registration.MeetingRegistrationDialogContract;
 import com.openclassrooms.mareu.utils.DateEasy;
 
 import java.time.Instant;
@@ -12,10 +13,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Model for MeetingRegistration
+ * Model/Repository for MVP MeetingRegistration
  * Note that this dummy model, in a real app, would be placed in a repository
  */
-public class MeetingRegistrationDialogModel implements MeetingRegistrationDialogContract.Model {
+public class MeetingRegistrationFakeRepository implements MeetingRegistrationDialogContract.Model {
 
     /**
      * The meeting date

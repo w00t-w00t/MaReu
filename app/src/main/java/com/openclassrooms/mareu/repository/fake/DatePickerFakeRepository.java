@@ -1,13 +1,14 @@
-package com.openclassrooms.mareu.ui.pickers.date;
+package com.openclassrooms.mareu.repository.fake;
 
+import com.openclassrooms.mareu.ui.pickers.date.DatePickerContract;
 import com.openclassrooms.mareu.utils.DateEasy;
 
 import java.time.Instant;
 
 /**
- * Model for the date picker
+ * Model/Repository for the MVP date picker
  */
-public class DatePickerModel implements DatePickerContract.Model {
+public class DatePickerFakeRepository implements DatePickerContract.Model {
 
     /**
      * When a date is saved, always convert to the same date but at the end of the day

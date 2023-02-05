@@ -18,7 +18,6 @@ import com.openclassrooms.mareu.R;
 import com.openclassrooms.mareu.model.Person;
 import com.openclassrooms.mareu.ui.add_persons.AddPersonsDialogDisplayable;
 import com.openclassrooms.mareu.ui.add_persons.AddPersonsDialogFactory;
-import com.openclassrooms.mareu.ui.add_persons.mvp.AddPersonsDialogFragment;
 import com.openclassrooms.mareu.ui.main.MainActivity;
 import com.openclassrooms.mareu.ui.pickers.date.DatePickerFactory;
 import com.openclassrooms.mareu.ui.pickers.time.TimePickerFactory;

@@ -1,5 +1,7 @@
 package com.openclassrooms.mareu.ui.pickers.date;
 
+import com.openclassrooms.mareu.repository.fake.DatePickerFakeRepository;
+
 import java.time.Instant;
 
 /**
@@ -22,7 +24,7 @@ public class DatePickerFactory {
             DatePickerContract.Model.OnDateChangedListener onDateChangedListener){
 
         // create the model
-        DatePickerContract.Model model = new DatePickerModel();
+        DatePickerContract.Model model = new DatePickerFakeRepository();
         model.setInitialDate(initialDate);
         model.setMinDate(minDate);
         model.setEndOfDayMode(endOfDayMode);

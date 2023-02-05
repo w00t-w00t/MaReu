@@ -1,8 +1,9 @@
-package com.openclassrooms.mareu.ui.meetings_list;
+package com.openclassrooms.mareu.repository.fake;
 
 import com.openclassrooms.mareu.di.DI;
 import com.openclassrooms.mareu.model.Meeting;
 import com.openclassrooms.mareu.service.MeetingsApiService;
+import com.openclassrooms.mareu.ui.meetings_list.MeetingsListContract;
 import com.openclassrooms.mareu.utils.DateEasy;
 
 import java.time.Instant;
@@ -12,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Model for the MeetingsList
+ * Model/Repository for the MVP MeetingsList
  * Note that this dummy model, in a real app, would be placed in a repository
  */
-public class MeetingsListModel implements MeetingsListContract.Model {
+public class MeetingsListFakeRepository implements MeetingsListContract.Model {
 
     /**
      * The start date filter
@@ -40,7 +41,7 @@ public class MeetingsListModel implements MeetingsListContract.Model {
     /**
      * Constructor
      */
-    public MeetingsListModel() {
+    public MeetingsListFakeRepository() {
         // init the external model service, thanks to dependency injection
         mMeetingsApiService = DI.getMeetingsApiService();
         // init the start date to now

@@ -1,13 +1,14 @@
-package com.openclassrooms.mareu.ui.pickers.time;
+package com.openclassrooms.mareu.repository.fake;
 
+import com.openclassrooms.mareu.ui.pickers.time.TimePickerContract;
 import com.openclassrooms.mareu.utils.DateEasy;
 
 import java.time.Instant;
 
 /**
- * Model for the time picker
+ * Model/Repository for the MVP time picker
  */
-public class TimePickerModel implements TimePickerContract.Model {
+public class TimePickerFakeRepository implements TimePickerContract.Model {
 
     /**
      * Current date time

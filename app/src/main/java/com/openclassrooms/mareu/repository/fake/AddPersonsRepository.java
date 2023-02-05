@@ -1,15 +1,16 @@
-package com.openclassrooms.mareu.ui.add_persons.mvp;
+package com.openclassrooms.mareu.repository.fake;
 
 import com.openclassrooms.mareu.model.Person;
+import com.openclassrooms.mareu.ui.add_persons.mvp.AddPersonsDialogContract;
 
 import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Model for the AddPersonsDialog
+ * Model/Repository for the MVP AddPersonsDialog
  * Note that this dummy model, in a real app, would be placed in a repository
  */
-public class AddPersonsDialogModel implements AddPersonsDialogContract.Model {
+public class AddPersonsRepository implements AddPersonsDialogContract.Model {
 
     /**
      * The list of (set of unique) persons

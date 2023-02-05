@@ -3,7 +3,7 @@ package com.openclassrooms.mareu.ui.main;
 import android.os.Bundle;
 import com.openclassrooms.mareu.R;
 import com.openclassrooms.mareu.ui.meetings_list.MeetingsListFragment;
-import com.openclassrooms.mareu.ui.meetings_list.MeetingsListModel;
+import com.openclassrooms.mareu.repository.fake.MeetingsListFakeRepository;
 import com.openclassrooms.mareu.ui.meetings_list.MeetingsListPresenter;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // create the model
-        MeetingsListModel meetingsListModel = new MeetingsListModel();
+        MeetingsListFakeRepository meetingsListFakeRepository = new MeetingsListFakeRepository();
 
         // create the presenter
-        mMeetingsListPresenter = new MeetingsListPresenter(mMeetingsListFragment, meetingsListModel);
+        mMeetingsListPresenter = new MeetingsListPresenter(mMeetingsListFragment, meetingsListFakeRepository);
     }
 
     /**

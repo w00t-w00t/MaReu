@@ -1,5 +1,7 @@
 package com.openclassrooms.mareu.ui.pickers.time;
 
+import com.openclassrooms.mareu.repository.fake.TimePickerFakeRepository;
+
 import java.time.Instant;
 
 /**
@@ -18,7 +20,7 @@ public class TimePickerFactory {
             TimePickerContract.Model.OnTimeChangedListener onTimeChangedListener){
 
         // create the model
-        TimePickerContract.Model model = new TimePickerModel();
+        TimePickerContract.Model model = new TimePickerFakeRepository();
         model.setInitialDateTime(initialDateTime);
         model.setOnTimeChangedListener(onTimeChangedListener);
 
