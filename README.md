@@ -235,3 +235,11 @@ The reason why MVP is widely accepted is because it offers modularity, testabili
 - The Presenter updates the View using the classical way (triggering methods). The ViewModel sends data streams.
 - The Presenter and View are in a 1 to 1 relationship. The View and the ViewModel are in a 1 to many relationship.
 - The ViewModel does not know that the View is listening to it.
+
+#### How is it possible to notify some class without having a reference of it?
+
+It can be done in three different ways:
+
+- Using Two Way Data Binding
+- Using Live Data
+- Using RxJava
