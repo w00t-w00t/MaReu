@@ -3,7 +3,7 @@ package com.openclassrooms.mareu.ui.add_persons;
 import com.openclassrooms.mareu.dao.PersonDao;
 import com.openclassrooms.mareu.model.Person;
 import com.openclassrooms.mareu.repository.PersonListRepository;
-import com.openclassrooms.mareu.repository.fake.AddPersonsRepository;
+import com.openclassrooms.mareu.repository.fake.AddPersonsFakeRepository;
 
 import java.util.Set;
 
@@ -45,7 +45,7 @@ public class AddPersonsDialogFactory implements AddPersonsDialogFactoryContract 
 
             // create the model
             com.openclassrooms.mareu.ui.add_persons.mvp.AddPersonsDialogContract.Model model =
-                    new AddPersonsRepository();
+                    new AddPersonsFakeRepository();
             model.setInitialPersons(initialPersons);
             model.setOnPersonsSetFinalChangedListener(
                     onPersonsSetFinalChangedListener::onPersonsListFinalChanged

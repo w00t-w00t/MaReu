@@ -7,6 +7,7 @@ import java.time.Instant;
 
 /**
  * Model/Repository for the MVP date picker
+ * Note that, in a real app, this content MUST be dispatched to DAO, models, services, etc.
  */
 public class DatePickerFakeRepository implements DatePickerContract.Model {
 

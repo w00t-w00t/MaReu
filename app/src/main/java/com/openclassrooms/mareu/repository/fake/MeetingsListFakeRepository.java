@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * Model/Repository for the MVP MeetingsList
- * Note that this dummy model, in a real app, would be placed in a repository
+ * Note that, in a real app, this content MUST be dispatched to DAO, models, services, etc.
  */
 public class MeetingsListFakeRepository implements MeetingsListContract.Model {
 

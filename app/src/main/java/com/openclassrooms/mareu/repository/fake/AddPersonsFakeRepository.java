@@ -8,9 +8,9 @@ import java.util.TreeSet;
 
 /**
  * Model/Repository for the MVP AddPersonsDialog
- * Note that this dummy model, in a real app, would be placed in a repository
+ * Note that, in a real app, this content MUST be dispatched to DAO, models, services, etc.
  */
-public class AddPersonsRepository implements AddPersonsDialogContract.Model {
+public class AddPersonsFakeRepository implements AddPersonsDialogContract.Model {
 
     /**
      * The list of (set of unique) persons
