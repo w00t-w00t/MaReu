@@ -244,3 +244,8 @@ It can be done in three different ways:
 - Using Two Way Data Binding
 - Using Live Data
 - Using RxJava
+
+## Model detailed
+
+![Model detailed](./img/model.png)
+
