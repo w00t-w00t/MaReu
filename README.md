@@ -44,7 +44,7 @@ Students may ask some advantages over Kotlin to stick with Java :
 You can add a demo activity in order to simplify some UI components demo : 
 
 ```java
-package fr.openclassrooms.mareu.ui.main;
+package ... .mareu.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
