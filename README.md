@@ -232,9 +232,6 @@ The reason why MVP is widely accepted is because it offers modularity, testabili
 
 - ViewModel replaces the Presenter in the Middle Layer.
 - The Presenter holds references to the View. The ViewModel doesn't.
-- The Presenter updates the View using the classical way (triggering methods).
-- The ViewModel sends data streams.
-- The Presenter and View are in a 1 to 1 relationship.
-- The View and the ViewModel are in a 1 to many relationship.
+- The Presenter updates the View using the classical way (triggering methods). The ViewModel sends data streams.
+- The Presenter and View are in a 1 to 1 relationship. The View and the ViewModel are in a 1 to many relationship.
 - The ViewModel does not know that the View is listening to it.
-
