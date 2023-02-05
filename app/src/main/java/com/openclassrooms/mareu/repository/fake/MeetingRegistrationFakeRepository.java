@@ -20,16 +20,19 @@ public class MeetingRegistrationFakeRepository implements MeetingRegistrationDia
 
     /**
      * The meeting date
+     * NEVER STORE THIS INSTANT DIRECTLY, IN A REAL APP, USE A DAO
      */
     private Instant mMeetingDate = DateEasy.now();
 
     /**
      * The persons invited to the meeting
+     * NEVER STORE THIS LIST DIRECTLY, IN A REAL APP, USE A DAO
      */
     private Set<Person> mPersonsInvitedToTheMeeting = new TreeSet<>();
 
     /**
      * The API service
+     * AVOID TO ACCESS THE SERVICE HERE, IN A REAL APP, USE A DAO
      */
     private final MeetingsApiService mApiService = DI.getMeetingsApiService();
 

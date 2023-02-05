@@ -13,21 +13,25 @@ public class DatePickerFakeRepository implements DatePickerContract.Model {
 
     /**
      * When a date is saved, always convert to the same date but at the end of the day
+     * NEVER STORE THIS BOOLEAN DIRECTLY, IN A REAL APP, USE A DAO
      */
     private Boolean endOfDayMode;
 
     /**
      * Current date
+     * NEVER STORE THIS INSTANT DIRECTLY, IN A REAL APP, USE A DAO
      */
     private Instant mDate;
 
     /**
      * Min date
+     * NEVER STORE THIS INSTANT DIRECTLY, IN A REAL APP, USE A DAO
      */
     private Instant mMinDate;
 
     /**
      * Initial date
+     * NEVER STORE THIS INSTANT DIRECTLY, IN A REAL APP, USE A DAO
      */
     private Instant mInitialDate;
 

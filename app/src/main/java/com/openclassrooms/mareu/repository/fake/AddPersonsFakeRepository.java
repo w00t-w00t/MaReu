@@ -14,6 +14,7 @@ public class AddPersonsFakeRepository implements AddPersonsDialogContract.Model 
 
     /**
      * The list of (set of unique) persons
+     * NEVER ACCESS THIS LIST DIRECTLY, IN A REAL APP, USE A DAO
      */
     private final Set<Person> mPersonsSet = new TreeSet<>();
 

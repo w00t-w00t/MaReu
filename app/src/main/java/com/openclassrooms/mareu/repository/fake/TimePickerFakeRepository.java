@@ -13,11 +13,13 @@ public class TimePickerFakeRepository implements TimePickerContract.Model {
 
     /**
      * Current date time
+     * AVOID TO STORE THIS INSTANT HERE, IN A REAL APP, USE A DAO
      */
     private Instant mDateTime;
 
     /**
      * Initial date time
+     * AVOID TO STORE THIS INSTANT HERE, IN A REAL APP, USE A DAO
      */
     private Instant mInitialDateTime;
 

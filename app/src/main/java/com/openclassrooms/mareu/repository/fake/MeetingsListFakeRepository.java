@@ -20,16 +20,19 @@ public class MeetingsListFakeRepository implements MeetingsListContract.Model {
 
     /**
      * The start date filter
+     * AVOID TO STORE THIS INSTANT HERE, IN A REAL APP, USE A DAO
      */
     private Instant mFilterStartDate;
 
     /**
      * The end date filter
+     * AVOID TO STORE THIS INSTANT HERE, IN A REAL APP, USE A DAO
      */
     private Instant mFilterEndDate;
 
     /**
      * The place filter
+     * AVOID TO STORE THIS STRING HERE, IN A REAL APP, USE A DAO
      */
     private String mFilterPlace;
 
