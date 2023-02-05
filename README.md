@@ -44,62 +44,138 @@ Students may ask some advantages over Kotlin to stick with Java :
 You can add a demo activity in order to simplify some UI components demo : 
 
 ```java
-
-package ... .mareu.ui.main;
+package fr.openclassrooms.mareu.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import ... .mareu.R;
-
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ... .ui.pickers.date.DatePickerFactory;
-import ... .ui.pickers.date.DatePickerFragment;
+import ... .mareu.di.DI;
+import ... .mareu.model.Meeting;
+import ... .mareu.model.Person;
+import ... .mareu.ui.meetings_registration.MeetingRegistrationDialogFactory;
+import ... .mareu.ui.meetings_registration.MeetingRegistrationDialogFragment;
+import ... .mareu.ui.add_persons.AddPersonsDialogFactory;
+import ... .mareu.ui.add_persons.AddPersonsDialogFragment;
+import ... .mareu.ui.meetings_list.MeetingsListFragment;
+import ... .mareu.ui.meetings_list.MeetingsListModel;
+import ... .mareu.ui.meetings_list.MeetingsListPresenter;
+import ... .mareu.ui.pickers.date.DatePickerFactory;
+import ... .mareu.ui.pickers.date.DatePickerFragment;
+import ... .mareu.ui.pickers.time.TimePickerFactory;
+import ... .mareu.ui.pickers.time.TimePickerFragment;
 import ... .mareu.utils.DateEasy;
 
-public class DemoActivity extends AppCompatActivity {
-    
-    // A button to open an UI date picker
+public class MainActivity extends AppCompatActivity {
     @BindView(R.id.button)
     Button button;
+    @BindView(R.id.button2)
+    Button button2;
+    @BindView(R.id.button3)
+    Button button3;
+    @BindView(R.id.button4)
+    Button button4;
+    @BindView(R.id.button5)
+    Button button5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        // Get the fragment manager
         final FragmentManager fm = getSupportFragmentManager();
-        // On click on the button, open the date picker
+        
+        // button 1 : open a dialog to pick a date
         button.setOnClickListener(v -> {
-            // Create the date picker factory
+            // create the date picker factory
             DatePickerFactory factory = new DatePickerFactory();
-            // Get the fragment ..
+            // get the fragment ..
             DatePickerFragment fragment = factory.getFragment(
                     DateEasy.now(),
                     null,
                     !false,
                     // on date set, notify the presenter
-                    (datePicked) -> System.out.println("Selected date : " + datePicked)
+                    (datePicked) -> System.out.println("Date has been chosen : " + datePicked)
             );
             // .. and display it
             fragment.display(fm);
         });
+        
+        // button 2 : open a dialog to pick a time
+        button2.setOnClickListener(v -> {
+            // create the time picker factory
+            TimePickerFactory factory = new TimePickerFactory();
+            // create the fragment
+            TimePickerFragment fragment = factory.getFragment(
+                    DateEasy.now(),
+                    (timePicked) -> System.out.println("Time has been picked out : " + timePicked)
+            );
+            // .. and display it
+            fragment.display(fm);
+        });
+        
+        // button 3 : open a dialog to add persons in a meeting
+        button3.setOnClickListener(v -> {
+            // add initial persons to the meeting 
+            Set<Person> persons = new TreeSet<>();
+            persons.add(new Person("user1@gmail.com"));
+            persons.add(new Person("user2@gmail.com"));
+            // create the meeting registration dialog factory
+            AddPersonsDialogFactory factory = new AddPersonsDialogFactory();
+            // create the fragment
+            AddPersonsDialogFragment fragment = factory.getFragment(
+                    persons,
+                    (personsSet) -> personsSet.stream().map(x -> x.getEmail()).forEach(System.out::println)
+            );
+            // .. and display it
+            fragment.display(fm);
+        });
+        
+        // button 4 : open a form dialog to add a meeting
+        button4.setOnClickListener(v -> {
+            // create the meeting registration dialog factory
+            MeetingRegistrationDialogFactory factory = new MeetingRegistrationDialogFactory();
+            // create the fragment
+            MeetingRegistrationDialogFragment fragment = factory.getFragment();
+            // .. and display it
+            fragment.display(fm);
+        });
+        
+        // button 5 : open a list of meetings
+        button5.setOnClickListener(v -> {
+            // create the fragment for the meetings list
+            ListMeetingsFragment f = ListMeetingsFragment.newInstance();
+            // create the model for the meetings list
+            ListMeetingsModel m = new ListMeetingsModel();
+            // create the presenter for the meetings list
+            ListMeetingsPresenter p = new ListMeetingsPresenter(f, m);
+            // display the fragment
+            fm
+                .beginTransaction()
+                .add(R.id.activity_meetings, f)
+                .commit();
+        });
+        
     }
+
+    public void updateMeetingsFragments() {
+        DI.getMeetingsApiService().getMeetings().stream().map(x -> x.getSubject()).forEach(System.out::println);
+    }
+
 }
 ```
 
 ## Layout used
+
+### ConstraintLayout
 
 ### FrameLayout
 
