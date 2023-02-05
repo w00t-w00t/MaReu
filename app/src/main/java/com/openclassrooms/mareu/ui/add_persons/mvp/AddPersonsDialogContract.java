@@ -1,4 +1,4 @@
-package com.openclassrooms.mareu.ui.add_persons;
+package com.openclassrooms.mareu.ui.add_persons.mvp;
 
 import com.openclassrooms.mareu.core.SimpleMvp;
 import com.openclassrooms.mareu.model.Person;

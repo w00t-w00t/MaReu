@@ -1,6 +1,4 @@
-package com.openclassrooms.mareu.ui.add_persons;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+package com.openclassrooms.mareu.ui.add_persons.mvvm;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,42 +12,43 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.openclassrooms.mareu.R;
 import com.openclassrooms.mareu.model.Person;
+import com.openclassrooms.mareu.ui.add_persons.AddPersonsDialogDisplayable;
 import com.openclassrooms.mareu.utils.PersonsListFormatter;
 import com.openclassrooms.mareu.utils.ui.SimpleTextWatcher;
 
+import java.util.Objects;
 import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * View (fragment) for adding persons to a meeting.
- */
-public class AddPersonsDialogFragment extends DialogFragment implements AddPersonsDialogContract.View {
+public class AddPersonsDialogFragment extends DialogFragment
+        implements AddPersonsDialogDisplayable {
+
+    /**
+     * Tell if the UI is ready to be used by the ViewModel
+     */
+    private Boolean isUIReady = false;
+
+    /**
+     * The ViewModel
+     */
+    private AddPersonsDialogViewModel mViewModel;
 
     /**
      * Declare Class tag for logging
      */
-    private static final String TAG = "AddPersonsDialogFragment";
+    private static final String TAG = "AddPersonsDialogFragmentMVVM";
 
     /**
      * Minimum characters required for an email to add that person
      */
     private static final int MINIMUM_EMAIL_LENGTH_TO_SHOW_ADD_BUTTON = 4;
-
-    /**
-     * Declare the associated presenter
-     */
-    private AddPersonsDialogContract.Presenter mPresenter;
-
-    /**
-     * Buffer the fragment manager
-     */
-    private FragmentManager mFragmentManager;
 
     /**
      * Bind UI components
@@ -72,52 +71,53 @@ public class AddPersonsDialogFragment extends DialogFragment implements AddPerso
     TextView mAddPersonsFullListText;
 
     /**
+     * Simple facility interface to notify the fragment is dismissed
+     */
+    public interface OnDismissListener {
+        void onDismiss();
+    }
+    private OnDismissListener mOnDismissListener;
+
+    /**
      * Constructor
      */
-    public AddPersonsDialogFragment() {
+    public AddPersonsDialogFragment(
+            AddPersonsDialogViewModel mViewModel,
+            OnDismissListener onDismissListener
+    ) {
         // always call the super class constructor
         super();
+        // set the ViewModel
+        this.mViewModel = mViewModel;
+        // set the dismiss listener
+        this.mOnDismissListener = onDismissListener;
     }
 
     /**
      * Create a new instance
      */
-    public static AddPersonsDialogFragment newInstance() {
-        return new AddPersonsDialogFragment();
-    }
-
-    /**
-     * Attach the presenter, to avoid circular dependency issue
-     * (the view need the presenter to instantiate, and the presenter need the view to instantiate)
-     * @param presenter the presenter
-     */
-    @Override
-    public void attachPresenter(AddPersonsDialogContract.Presenter presenter) {
-        mPresenter = presenter;
+    public static AddPersonsDialogFragment newInstance(
+            AddPersonsDialogViewModel mViewModel,
+            OnDismissListener onDismissListener
+    ) {
+        return new AddPersonsDialogFragment(mViewModel, onDismissListener);
     }
 
     /**
      * Implements the display method, to show the UI
      */
-    public void display(FragmentManager fragmentManager) {
-        mFragmentManager = checkNotNull(fragmentManager);
-        // signal the presenter we want to init and display the dialog
-        mPresenter.init();
-    }
-
-    /**
-     * Show the UI
-     */
     @Override
-    public void showDialog() {
-        show(mFragmentManager, TAG);
+    public void display(FragmentManager fragmentManager) {
+        show(fragmentManager, TAG);
+        updatePersonsList(Objects.requireNonNull(mViewModel.getPersons().getValue()));
     }
 
     /**
      * Build the full list of persons as string, when the presenter request it
      */
-    @Override
     public void updatePersonsList(Set<Person> personsSet) {
+        if(!isUIReady) return;
+
         // if the person set is empty, display a message
         if(personsSet.isEmpty()){
             mAddPersonsFullListText.setText("");
@@ -160,12 +160,22 @@ public class AddPersonsDialogFragment extends DialogFragment implements AddPerso
         View view = inflater.inflate(R.layout.fragment_add_people_dialog, container, false);
         // bind the UI components
         ButterKnife.bind(this, view);
-        // call the presenter that the view is ready (UI components successfully bind)
-        mPresenter.onViewLoaded();
+
         // configure the add person text input
         configureAddPersonText();
         // configure the add person button
         configureAddPersonButton();
+
+        // start to observe the ViewModel Persons list
+        mViewModel.getPersons().observe(this, new Observer<Set<Person>>() {
+            @Override
+            public void onChanged(Set<Person> persons) {
+                updatePersonsList(persons);
+            }
+        });
+
+        isUIReady = true;
+
         // return the view
         return view;
     }
@@ -189,10 +199,10 @@ public class AddPersonsDialogFragment extends DialogFragment implements AddPerso
         mAddPersonsToolbar.setNavigationOnClickListener(v -> dismiss());
         // configure the save button on the toolbar
         mAddPersonsToolbar.setOnMenuItemClickListener(item -> {
-            // tell the presenter the list of persons will no longer change
-            mPresenter.commit();
             // dismiss the dialog (return to the previous fragment)
             dismiss();
+            // tell the caller the list of persons will no longer change, because of dismiss
+            this.mOnDismissListener.onDismiss();
             // return true to consume the event
             return true;
         });
@@ -230,8 +240,8 @@ public class AddPersonsDialogFragment extends DialogFragment implements AddPerso
                 String email = mAddPersonsTextInput.getEditText().getText().toString();
                 // build the corresponding Person object from the email
                 Person person = new Person(email);
-                // tell the presenter to add the person to the list
-                mPresenter.onPersonAdded(person);
+                // tell the ViewModel to add the person to the list
+                mViewModel.addPerson(person);
                 // clear the text input
                 mAddPersonsTextInput.getEditText().setText("");
                 // hide the add button
@@ -239,5 +249,7 @@ public class AddPersonsDialogFragment extends DialogFragment implements AddPerso
             }
         });
     }
+
+
 
 }

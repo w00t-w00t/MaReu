@@ -130,10 +130,11 @@ public class MainActivity extends AppCompatActivity {
             persons.add(new Person("user2@gmail.com"));
             // create the meeting registration dialog factory
             AddPersonsDialogFactory factory = new AddPersonsDialogFactory();
-            // create the fragment
-            AddPersonsDialogFragment fragment = factory.getFragment(
+            // create the fragment as a displayable object
+            AddPersonsDialogDisplayable fragment = factory.getFragment(
                     persons,
-                    (personsSet) -> personsSet.stream().map(x -> x.getEmail()).forEach(System.out::println)
+                    (personsSet) -> personsSet.stream().map(x -> x.getEmail()).forEach(System.out::println),
+                    "MVP" // MVP or MVVM
             );
             // .. and display it
             fragment.display(fm);
