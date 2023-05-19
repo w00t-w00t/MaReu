@@ -386,7 +386,7 @@ public class MeetingRegistrationDialogFragment extends DialogFragment implements
                 // initial date
                 meetingDate,
                 // date from
-                meetingDate,
+                DateEasy.now(),
                 // we don't want the resulting date to be set at the end of the day in that case
                 false,
                 // when a date is selected by the user, propagate it to the presenter
