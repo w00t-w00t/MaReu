@@ -11,7 +11,7 @@ import com.openclassrooms.mareu.base.BaseIntegrationTest;
 
 import org.junit.Test;
 
-public class NotEmptyIntegrationTest extends BaseIntegrationTest {
+public class CountInitialMeetingIntegrationTest extends BaseIntegrationTest {
 
     @Test
     public void meetingsListTest_shouldContainFourMeetings() {
