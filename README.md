@@ -253,3 +253,10 @@ It can be done in three different ways:
 
 ![Classes Tree](./img/tree.png)
 
+# Debug 
+
+## Error `superclass access check failed: class butterknife.compiler.ButterKnifeProcessor`
+
+You must run Gradle with JDK11.
+
+Go to Project Structure > Gradle Settings > Set Gradle JDK to the JDK11 folder (you can download it automatically if needed)
