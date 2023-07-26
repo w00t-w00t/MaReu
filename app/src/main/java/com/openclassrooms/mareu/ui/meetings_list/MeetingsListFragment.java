@@ -157,7 +157,7 @@ public class MeetingsListFragment extends Fragment implements MeetingsListContra
         // Find the floating action button (add a meeting), then add the setOnClickListener logic
         Objects.requireNonNull(getActivity())
             .findViewById(R.id.activity_meetings_add_meeting_fab)
-            .setOnClickListener(v -> mPresenter.onCreateMeetingRequested());
+            .setOnClickListener(v -> triggerMeetingRegistrationDialog());
         // Build the recycler view
         mMeetingsListAdapter = new MeetingsListAdapter(
                 // empty list of meetings at startup
@@ -434,9 +434,8 @@ public class MeetingsListFragment extends Fragment implements MeetingsListContra
     }
 
     /**
-     * Method called by the presenter, to display the meeting registration (add) dialog
+     * Method called by this Fragment to display the meeting registration (add) dialog
      */
-    @Override
     public void triggerMeetingRegistrationDialog() {
         AddMeetingDialogFactory factory = new AddMeetingDialogFactory();
         factory

@@ -55,9 +55,6 @@ public interface MeetingsListContract {
         // update the filters labels in the view
         void updateFilters(String filterPlace, String filterStartDate, String filterEndDate);
 
-        // trigger the meeting registration dialog
-        void triggerMeetingRegistrationDialog();
-
         // expand or collapse the filter card view
         void expandOrCollapseFilters();
 
@@ -79,9 +76,6 @@ public interface MeetingsListContract {
 
         // refresh the meetings list requested
         void onRefreshMeetingsListRequested();
-
-        // on create new meeting request
-        void onCreateMeetingRequested();
 
         // on filters have changed
         void onFiltersChanged(String filterPlace, String filterStartDate, String filterEndDate);

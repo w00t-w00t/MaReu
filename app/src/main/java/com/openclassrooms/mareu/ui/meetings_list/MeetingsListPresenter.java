@@ -77,15 +77,6 @@ public class MeetingsListPresenter implements MeetingsListContract.Presenter {
     }
 
     /**
-     * Registration of a new meeting is requested by the view
-     */
-    @Override
-    public void onCreateMeetingRequested() {
-        // so we trigger the meeting registration dialog
-        mView.triggerMeetingRegistrationDialog();
-    }
-
-    /**
      * Drop a meeting is requested by the view
      * @param position the position of the meeting in the list
      */
