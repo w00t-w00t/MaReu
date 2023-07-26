@@ -158,7 +158,7 @@ public class AddMeetingDialogFragment extends DialogFragment implements AddMeeti
         // always call the super class method
         super.onCreateView(inflater, container, savedInstanceState);
         // inflate the layout
-        View view = inflater.inflate(R.layout.fragment_meeting_registration_dialog, container,
+        View view = inflater.inflate(R.layout.fragment_meeting_add_dialog, container,
                 false);
         // bind the UI components
         ButterKnife.bind(this, view);
