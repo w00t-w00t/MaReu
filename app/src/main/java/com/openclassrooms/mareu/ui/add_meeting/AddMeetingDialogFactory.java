@@ -5,22 +5,22 @@ import com.openclassrooms.mareu.repository.fake.MeetingRegistrationFakeRepositor
 /**
  * Factory for the MeetingRegistrationDialog
  */
-public class MeetingAddDialogFactory {
+public class AddMeetingDialogFactory {
 
     /**
      * Create a MeetingRegistrationDialogFragment
      * @return the MeetingRegistrationDialogFragment
      */
-    public MeetingAddDialogFragment getFragment(){
+    public AddMeetingDialogFragment getFragment(){
 
         // create the model
-        MeetingAddDialogContract.Model model = new MeetingRegistrationFakeRepository();
+        AddMeetingDialogContract.Model model = new MeetingRegistrationFakeRepository();
 
         // create the fragment (view)
-        MeetingAddDialogFragment fragment = MeetingAddDialogFragment.newInstance();
+        AddMeetingDialogFragment fragment = AddMeetingDialogFragment.newInstance();
 
         // create the presenter
-        new MeetingAddDialogPresenter(fragment, model);
+        new AddMeetingDialogPresenter(fragment, model);
 
         // return the fragment
         return fragment;

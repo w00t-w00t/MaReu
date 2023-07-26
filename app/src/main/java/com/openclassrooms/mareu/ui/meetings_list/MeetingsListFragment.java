@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.openclassrooms.mareu.model.Meeting;
-import com.openclassrooms.mareu.ui.add_meeting.MeetingAddDialogFactory;
+import com.openclassrooms.mareu.ui.add_meeting.AddMeetingDialogFactory;
 import com.openclassrooms.mareu.ui.pickers.date.DatePickerFactory;
 import com.openclassrooms.mareu.ui.pickers.date.DatePickerFragment;
 import com.google.android.material.button.MaterialButton;
@@ -438,7 +438,7 @@ public class MeetingsListFragment extends Fragment implements MeetingsListContra
      */
     @Override
     public void triggerMeetingRegistrationDialog() {
-        MeetingAddDialogFactory factory = new MeetingAddDialogFactory();
+        AddMeetingDialogFactory factory = new AddMeetingDialogFactory();
         factory
                 .getFragment()
                 .display(getFragmentManager());

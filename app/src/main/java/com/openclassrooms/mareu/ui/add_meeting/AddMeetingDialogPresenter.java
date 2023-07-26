@@ -12,26 +12,26 @@ import java.util.Set;
 /**
  * The presenter for the MeetingRegistrationDialog
  */
-public class MeetingAddDialogPresenter implements MeetingAddDialogContract.Presenter {
+public class AddMeetingDialogPresenter implements AddMeetingDialogContract.Presenter {
 
     /**
      * The view
      */
-    private final MeetingAddDialogContract.View mView;
+    private final AddMeetingDialogContract.View mView;
 
     /**
      * The model
      */
-    private final MeetingAddDialogContract.Model mModel;
+    private final AddMeetingDialogContract.Model mModel;
 
     /**
     * Constructor for the presenter
     * @param view the view
     * @param model the model
     */
-    public MeetingAddDialogPresenter(
-            @NonNull MeetingAddDialogContract.View view,
-            @NonNull MeetingAddDialogContract.Model model) {
+    public AddMeetingDialogPresenter(
+            @NonNull AddMeetingDialogContract.View view,
+            @NonNull AddMeetingDialogContract.Model model) {
         // initialize the view
         mView = view;
         // initialize the model

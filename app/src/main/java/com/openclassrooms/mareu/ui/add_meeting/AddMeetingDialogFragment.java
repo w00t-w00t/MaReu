@@ -39,7 +39,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * DialogFragment for meeting registration
  */
-public class MeetingAddDialogFragment extends DialogFragment implements MeetingAddDialogContract.View {
+public class AddMeetingDialogFragment extends DialogFragment implements AddMeetingDialogContract.View {
 
     /**
      * Tag for logging
@@ -54,7 +54,7 @@ public class MeetingAddDialogFragment extends DialogFragment implements MeetingA
     /**
      * The presenter
      */
-    private MeetingAddDialogContract.Presenter mPresenter;
+    private AddMeetingDialogContract.Presenter mPresenter;
 
     /**
      * Buffer the fragment manager
@@ -92,7 +92,7 @@ public class MeetingAddDialogFragment extends DialogFragment implements MeetingA
     /**
      * Constructor
      */
-    public MeetingAddDialogFragment() {
+    public AddMeetingDialogFragment() {
         // always call the default constructor
         super();
     }
@@ -100,8 +100,8 @@ public class MeetingAddDialogFragment extends DialogFragment implements MeetingA
     /**
      * Create a new instance of the dialog fragment
      */
-    public static MeetingAddDialogFragment newInstance() {
-        return new MeetingAddDialogFragment();
+    public static AddMeetingDialogFragment newInstance() {
+        return new AddMeetingDialogFragment();
     }
 
     /**
@@ -110,7 +110,7 @@ public class MeetingAddDialogFragment extends DialogFragment implements MeetingA
      * @param presenter the presenter
      */
     @Override
-    public void attachPresenter(@NonNull MeetingAddDialogContract.Presenter presenter) {
+    public void attachPresenter(@NonNull AddMeetingDialogContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
     }
 

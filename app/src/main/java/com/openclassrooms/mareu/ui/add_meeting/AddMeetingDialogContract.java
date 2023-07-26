@@ -11,7 +11,7 @@ import java.util.Set;
  * Contract between the view and the presenter
  * Contract between the presenter and the model
  */
-public interface MeetingAddDialogContract {
+public interface AddMeetingDialogContract {
 
     /**
      * Model interface
