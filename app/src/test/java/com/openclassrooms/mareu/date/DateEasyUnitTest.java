@@ -1,4 +1,4 @@
-package com.openclassrooms.mareu;
+package com.openclassrooms.mareu.date;
 
 import static org.junit.Assert.assertEquals;
 
