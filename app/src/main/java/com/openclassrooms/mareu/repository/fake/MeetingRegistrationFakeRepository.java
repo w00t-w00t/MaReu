@@ -5,7 +5,7 @@ import com.openclassrooms.mareu.model.Meeting;
 import com.openclassrooms.mareu.model.Person;
 import com.openclassrooms.mareu.model.Place;
 import com.openclassrooms.mareu.service.MeetingsApiService;
-import com.openclassrooms.mareu.ui.meetings_registration.MeetingRegistrationDialogContract;
+import com.openclassrooms.mareu.ui.add_meeting.MeetingAddDialogContract;
 import com.openclassrooms.mareu.utils.DateEasy;
 
 import java.time.Instant;
@@ -16,7 +16,7 @@ import java.util.TreeSet;
  * Model/Repository for MVP MeetingRegistration
  * Note that, in a real app, this content MUST be dispatched to DAO, models, services, etc.
  */
-public class MeetingRegistrationFakeRepository implements MeetingRegistrationDialogContract.Model {
+public class MeetingRegistrationFakeRepository implements MeetingAddDialogContract.Model {
 
     /**
      * The meeting date

@@ -1,4 +1,4 @@
-package com.openclassrooms.mareu.ui.meetings_registration;
+package com.openclassrooms.mareu.ui.add_meeting;
 
 import com.openclassrooms.mareu.core.SimpleMvp;
 import com.openclassrooms.mareu.model.Person;
@@ -11,7 +11,7 @@ import java.util.Set;
  * Contract between the view and the presenter
  * Contract between the presenter and the model
  */
-public interface MeetingRegistrationDialogContract {
+public interface MeetingAddDialogContract {
 
     /**
      * Model interface

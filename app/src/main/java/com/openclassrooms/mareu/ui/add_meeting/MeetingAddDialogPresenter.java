@@ -1,4 +1,4 @@
-package com.openclassrooms.mareu.ui.meetings_registration;
+package com.openclassrooms.mareu.ui.add_meeting;
 
 import androidx.annotation.NonNull;
 
@@ -12,26 +12,26 @@ import java.util.Set;
 /**
  * The presenter for the MeetingRegistrationDialog
  */
-public class MeetingRegistrationDialogPresenter implements MeetingRegistrationDialogContract.Presenter {
+public class MeetingAddDialogPresenter implements MeetingAddDialogContract.Presenter {
 
     /**
      * The view
      */
-    private final MeetingRegistrationDialogContract.View mView;
+    private final MeetingAddDialogContract.View mView;
 
     /**
      * The model
      */
-    private final MeetingRegistrationDialogContract.Model mModel;
+    private final MeetingAddDialogContract.Model mModel;
 
     /**
     * Constructor for the presenter
     * @param view the view
     * @param model the model
     */
-    public MeetingRegistrationDialogPresenter(
-            @NonNull MeetingRegistrationDialogContract.View view,
-            @NonNull MeetingRegistrationDialogContract.Model model) {
+    public MeetingAddDialogPresenter(
+            @NonNull MeetingAddDialogContract.View view,
+            @NonNull MeetingAddDialogContract.Model model) {
         // initialize the view
         mView = view;
         // initialize the model

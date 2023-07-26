@@ -1,4 +1,4 @@
-package com.openclassrooms.mareu.ui.meetings_registration;
+package com.openclassrooms.mareu.ui.add_meeting;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -39,7 +39,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * DialogFragment for meeting registration
  */
-public class MeetingRegistrationDialogFragment extends DialogFragment implements MeetingRegistrationDialogContract.View {
+public class MeetingAddDialogFragment extends DialogFragment implements MeetingAddDialogContract.View {
 
     /**
      * Tag for logging
@@ -54,7 +54,7 @@ public class MeetingRegistrationDialogFragment extends DialogFragment implements
     /**
      * The presenter
      */
-    private MeetingRegistrationDialogContract.Presenter mPresenter;
+    private MeetingAddDialogContract.Presenter mPresenter;
 
     /**
      * Buffer the fragment manager
@@ -92,7 +92,7 @@ public class MeetingRegistrationDialogFragment extends DialogFragment implements
     /**
      * Constructor
      */
-    public MeetingRegistrationDialogFragment() {
+    public MeetingAddDialogFragment() {
         // always call the default constructor
         super();
     }
@@ -100,8 +100,8 @@ public class MeetingRegistrationDialogFragment extends DialogFragment implements
     /**
      * Create a new instance of the dialog fragment
      */
-    public static MeetingRegistrationDialogFragment newInstance() {
-        return new MeetingRegistrationDialogFragment();
+    public static MeetingAddDialogFragment newInstance() {
+        return new MeetingAddDialogFragment();
     }
 
     /**
@@ -110,7 +110,7 @@ public class MeetingRegistrationDialogFragment extends DialogFragment implements
      * @param presenter the presenter
      */
     @Override
-    public void attachPresenter(@NonNull MeetingRegistrationDialogContract.Presenter presenter) {
+    public void attachPresenter(@NonNull MeetingAddDialogContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
     }
 
